@@ -11,21 +11,42 @@ use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
+	/*Index
+	  */
 	public function getIndex(){
-		return view('article.index');
+		return redirect('home');
+		//dunno what to do with this url
+		//return view('article.index');
 	}
+
+	/*new article
+	  */
 	public function postIndex(Request $request){
 		$article=$request->user()->articles()->create([
 			'title'=>'',
 			'content'=>'',
 		]);
+		if(Gate::allows('status',$article)){
+			$article->status='accepted';
+			$article->save();
+		}
 		return redirect('/articles/'.$article->id.'/edit');
 	}
 
 	/*show the article
 	   */
 	public function getId($id){
-		$article=Article::find($id);
+		$article=Article::findOrFail($id);
+
+		$permit=true;
+		if($article->status <> 'accepted'){
+			$permit=false;
+			if(Gate::allows('update',$article)) $permit=true;
+		}
+
+		if($permit === false){
+			abort(401);
+		}
 		return view('article.read',['article'=>$article]);
 	}
 
@@ -37,6 +58,11 @@ class ArticleController extends Controller
 
 		$article->title=$request->title;
 		$article->content=$request->content;
+
+		if(Gate::allows('status',$article)){
+			$article->status=$request->status;
+		}
+
 		$article->save();
 
 		return redirect('/articles/'.$article->id.'/edit');

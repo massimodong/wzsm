@@ -15,7 +15,13 @@ edit: {{$article->title}}
 {{csrf_field()}}
 {{method_field('PUT')}}
 
-<div><strong>Title: <strong><input type='text' name='title' value='{{$article->title}}'></input></div>
+@can ('status',$article)
+	
+<div><strong>Status: </strong><input type='text' name='status' value='{{$article->status}}'></input></div>
+
+@endcan
+
+<div><strong>Title: </strong><input type='text' name='title' value='{{$article->title}}'></input></div>
 
 <br />
 <div>

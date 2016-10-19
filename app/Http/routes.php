@@ -23,7 +23,7 @@ Route::get('/articles','ArticleController@getIndex');
 Route::post('/articles','ArticleController@postIndex')->middleware(['auth']);
 
 Route::get('/articles/{id}','ArticleController@getId');
-Route::put('/articles/{id}','ArticleController@putId');
+Route::put('/articles/{id}','ArticleController@putId')->middleware(['auth']);
 
 Route::get('/articles/{id}/edit','ArticleController@getIdEdit')->middleware(['auth']);
 
@@ -37,8 +37,5 @@ Route::get('/auth/register', 'Auth\AuthController@getRegister');
 Route::post('/auth/register', 'Auth\AuthController@postRegister');
 
 
-Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function(){
-	Route::get('',function(){
-		return view('admin.index');
-	});
-});
+//Admin
+Route::controller('/admin','AdminController');

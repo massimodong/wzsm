@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
 	public function getIndex(){
-		$articles=Article::all();
+		$articles=Article::where('status','accepted')->get();
 		return view('home',['articles'=>$articles]);
 	}
 }
