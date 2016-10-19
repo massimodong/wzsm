@@ -1,3 +1,13 @@
+@extends('layouts.master')
+
+@section('title', 'register')
+
+@section('sidebar')
+	@parent
+
+@endsection
+
+@section('content')
 <form method="POST" action="/auth/register">
 {!! csrf_field() !!}
 
@@ -25,3 +35,4 @@ Confirm Password
 <button type="submit">Register</button>
 </div>
 </form>
+@endsection
