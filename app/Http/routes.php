@@ -15,7 +15,17 @@ Route::any('/',function(){
 	return redirect('home');
 });
 
+//Home
 Route::controller('/home','HomeController');
+
+//Articles
+Route::get('/articles','ArticleController@getIndex');
+Route::post('/articles','ArticleController@postIndex')->middleware(['auth']);
+
+Route::get('/articles/{id}','ArticleController@getId');
+Route::put('/articles/{id}','ArticleController@putId');
+
+Route::get('/articles/{id}/edit','ArticleController@getIdEdit')->middleware(['auth']);
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

@@ -3,10 +3,14 @@
 @section('title','Home')
 
 @section('sidebar')
-	<a>post articles!</a>
 	@parent
 @endsection
 
 @section('content')
-	<p>This is Home</p>
+<h3>Articles:</h3>
+<div>
+@foreach ($articles as $article)
+<p><a href='/articles/{{$article->id}}'>{{$article->title}}</a></p>
+@endforeach
+</div>
 @endsection
