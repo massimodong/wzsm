@@ -11,6 +11,11 @@
 			{{ csrf_field() }}
 			<button type='submit' class='btn btn-default'>New article</button>
 		</form>
+
+		@if (Auth::user()->role === 'admin')
+			<a href='/admin'>admin page</a><br/>
+		@endif
+
 		<a href='/auth/logout'>logout</a><p>
 	@else
 		<p><a href='/auth/login'>login</a></p>

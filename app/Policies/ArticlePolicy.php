@@ -23,4 +23,11 @@ class ArticlePolicy
     public function update(User $user,Article $article){
     	return $user->id === $article->user_id;
     }
+
+    public function before(User $user){
+    	if($user->role === 'admin'){
+		return true;
+	}
+	return false;
+    }
 }
