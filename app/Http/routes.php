@@ -37,6 +37,11 @@ Route::get('/auth/logout', 'Auth\AuthController@getLogout');
 Route::get('/auth/register', 'Auth\AuthController@getRegister');
 Route::post('/auth/register', 'Auth\AuthController@postRegister');
 
+//Users
+Route::get('/users','UserController@getIndex')->middleware(['auth']);
+
+Route::get('/users/{id}','UserController@getId');
+Route::put('/users/{id}','UserController@putId')->middleware(['auth']);
 
 //Admin
 Route::controller('/admin','AdminController');
