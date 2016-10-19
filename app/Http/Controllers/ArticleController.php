@@ -68,6 +68,15 @@ class ArticleController extends Controller
 		return redirect('/articles/'.$article->id.'/edit');
 	}
 
+	public function deleteId(Request $request,$id){
+		$article=Article::findOrFail($id);
+		$this->authorize('update',$article);
+
+		$article->delete();
+
+		return redirect('/home');
+	}
+
 	/*editpage
 	  */
 	public function getIdEdit($id){

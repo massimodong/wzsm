@@ -24,6 +24,7 @@ Route::post('/articles','ArticleController@postIndex')->middleware(['auth']);
 
 Route::get('/articles/{id}','ArticleController@getId');
 Route::put('/articles/{id}','ArticleController@putId')->middleware(['auth']);
+Route::delete('/articles/{id}','ArticleController@deleteId')->middleware(['auth']);
 
 Route::get('/articles/{id}/edit','ArticleController@getIdEdit')->middleware(['auth']);
 

@@ -35,4 +35,10 @@ Submit
 
 </form>
 
+<form action='/articles/{{$article->id}}' method='POST'>
+{{csrf_field()}}
+{{method_field('DELETE')}}
+
+<button>Delete article</button>
+</form>
 @endsection
