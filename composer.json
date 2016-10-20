@@ -7,7 +7,8 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-        "mews/purifier": "^2.0"
+        "mews/purifier": "^2.0",
+        "tinymce/tinymce": ">= 4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -37,11 +38,13 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
+            "php artisan optimize",
+	    "php artisan vendor:publish --tag=public"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
+            "php artisan optimize",
+	    "php artisan vendor:publish --tag=public"
         ]
     },
     "config": {
