@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Gate;
 use App\User;
+use App\Article;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -18,7 +19,8 @@ class UserController extends Controller
 
 	public function getId($id){
 		$user = User::findOrFail($id);
-		return view('users.index',['user'=>$user]);
+		$articles = $user->articles;
+		return view('users.index',['user'=>$user , 'articles'=>$articles]);
 	}
 
 	public function putIdProfile(Request $request,$id){

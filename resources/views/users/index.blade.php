@@ -38,5 +38,20 @@
 
 </div>
 
+<div>
+<h3>Articles</h3>
+<table>
+	<tr>
+	<th>Title</th> <th>Status</th>
+	</tr>
+	@foreach ($articles as $article)
+	<tr>
+	<td><a href='/articles/{{$article->id}}'>{{$article->title}}</a></td>
+	<td><a href='/articles/{{$article->id}}'>{{$article->status}}</a></td>
+	</tr>
+	@endforeach
+</table
+</div>
+
 @endsection
 
