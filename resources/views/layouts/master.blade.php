@@ -6,7 +6,7 @@
 @section('sidebar')
 	<a href='/'>Home</a>
 	@if (Auth::check())
-		<p>Current User: {{Auth::user()->name}} <br /> 
+		<p>User: <a href='/users/{{Auth::user()->id}}'> {{Auth::user()->name}} </a><br /> 
 		<form action='/articles' method='POST'>
 			{{ csrf_field() }}
 			<button type='submit' class='btn btn-default'>New article</button>
