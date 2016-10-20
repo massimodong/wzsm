@@ -27,6 +27,8 @@ Route::put('/articles/{id}','ArticleController@putId')->middleware(['auth']);
 Route::delete('/articles/{id}','ArticleController@deleteId')->middleware(['auth']);
 
 Route::get('/articles/{id}/edit','ArticleController@getIdEdit')->middleware(['auth']);
+Route::post('/articles/{id}/comments','ArticleController@postIdComments')->middleware(['auth']);
+Route::delete('articles/{article_id}/comments/{comment_id}','ArticleController@deleteIdComment')->middleware(['auth']);
 
 // Authentication routes...
 Route::get('/auth/login', 'Auth\AuthController@getLogin');

@@ -4,8 +4,12 @@ namespace App\Providers;
 
 use App\User;
 use App\Article;
+use App\Comment;
+
 use App\Policies\ArticlePolicy;
 use App\Policies\UserPolicy;
+use App\Policies\CommentPolicy;
+
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -20,6 +24,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Model' => 'App\Policies\ModelPolicy',
 	Article::class => ArticlePolicy::class,
 	User::class => UserPolicy::class,
+	Comment::class => CommentPolicy::class,
     ];
 
     /**

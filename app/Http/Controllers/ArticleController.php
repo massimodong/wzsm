@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Gate;
+use Auth;
 use App\Article;
+use App\Comment;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -47,7 +49,10 @@ class ArticleController extends Controller
 		if($permit === false){
 			abort(401);
 		}
-		return view('article.read',['article'=>$article]);
+
+		$comments = $article->comments;
+
+		return view('article.read',['article'=>$article , 'comments'=>$comments]);
 	}
 
 	/*update article
@@ -83,5 +88,31 @@ class ArticleController extends Controller
 		$article=Article::findOrFail($id);
 		$this->authorize('update',$article);
 		return view('article.edit',['article'=>$article]);
+	}
+
+	public function postIdComments(Request $request,$id){
+		$this->validate($request,[
+			'content' => 'required|min:5',
+		]);
+
+		$article = Article::findOrFail($id);
+		$article->comments()->create([
+			'user_id' => Auth::user()->id,
+			'content' => $request->content,
+		]);
+
+		return back();
+	}
+
+	public function deleteIdComment(Request $request,$article_id,$comment_id){
+		$comment=Comment::findOrFail($comment_id);
+		if($comment->article->id <> $article_id){
+			abort(404);
+		}
+		$this->authorize('update',$comment);
+
+		$comment->delete();
+
+		return back();
 	}
 }

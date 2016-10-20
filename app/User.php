@@ -10,6 +10,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use App\Article;
+use App\Comment;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
@@ -43,5 +44,12 @@ class User extends Model implements AuthenticatableContract,
      */
     public function articles(){
 	    return $this->hasMany(Article::class);
+    }
+
+    /**
+     *Get all of the comments for the user
+     */
+    public function comments(){
+	    return $this->hasMany(Comment::class);
     }
 }
