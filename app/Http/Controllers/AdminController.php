@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
 use App\Article;
 
 use App\Http\Requests;
@@ -21,7 +22,8 @@ class AdminController extends Controller
 	}
 
 	public function getUsers(){
-		return view('admin.users');
+		$users = User::all();
+		return view('admin.users',['users'=>$users]);
 	}
 
 	public function getArticles(){
