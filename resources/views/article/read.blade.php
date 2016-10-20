@@ -14,6 +14,6 @@
 
 @section('content')
 <h4>{{$article->title}}</h4>
-<div>{{$article->content}}</div>
+<div>{!! Purifier::clean($article->content) !!}</div>
 @endsection
 
