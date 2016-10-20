@@ -22,6 +22,8 @@
 	@endif
 @show
 
+@include ('common.errors')
+
 <p>######################</p>
 
 <div class="container">

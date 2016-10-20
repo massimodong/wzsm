@@ -13,7 +13,7 @@
 
 <div>
 @can ('update',$user)
-	<form action='/users/{{$user->id}}' method='POST'>
+	<form action='/users/{{$user->id}}/profile' method='POST'>
 		{{csrf_field()}}
 		{{method_field('PUT')}}
 
@@ -26,6 +26,7 @@
 		@endcan
 		><br/>
 		<a>password:</a><input type='password' name='password' value=''><br/>
+		<a> confirm:</a><input type='password' name='password_confirmation' value=''><br/>
 		<button type='submit' class="btn btn-default">Change</button>
 	</form>
 @else

@@ -41,7 +41,8 @@ Route::post('/auth/register', 'Auth\AuthController@postRegister');
 Route::get('/users','UserController@getIndex')->middleware(['auth']);
 
 Route::get('/users/{id}','UserController@getId');
-Route::put('/users/{id}','UserController@putId')->middleware(['auth']);
+
+Route::put('/users/{id}/profile','UserController@putIdProfile')->middleware(['auth']);
 
 //Admin
 Route::controller('/admin','AdminController');
