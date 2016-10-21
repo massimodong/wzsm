@@ -31,7 +31,8 @@ Password
 </div>
 
 <div>
-<a href='/auth/register'> register</a>
+<a href='/auth/register'> register</a><br>
+<a href='/password/email'>forgot password?</a><br>
 </div>
 </form>
 @endsection
