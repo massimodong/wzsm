@@ -9,6 +9,7 @@
 
 @section('content')
 
+<div>
 <table>
 	<tr>
 		<th>Article Id</th> <th>Author</th> <th>Title</th> <th>Status</th>
@@ -22,6 +23,14 @@
 	</tr>
 	@endforeach
 </table>
+</div>
+
+<div>
+<h4>Options</h4>
+@include ('admin.layouts.optionform',['options'=>[
+	['verify_articles','Verify Articles Mode'],
+]])
+</div>
 
 @endsection
 

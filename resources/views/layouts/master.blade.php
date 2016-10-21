@@ -1,8 +1,9 @@
 <html>
 <head>
-<title>Wzsm - @yield('title')</title>
+<title>{{App\Option::option('site_name')->value}} - @yield('title')</title>
 </head>
 <body>
+<h2>{{App\Option::option('site_name')->value}}</h2>
 @section('sidebar')
 	<a href='/'>Home</a>
 	@if (Auth::check())

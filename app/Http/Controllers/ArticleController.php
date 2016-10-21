@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 
 use Gate;
 use Auth;
+
 use App\Article;
 use App\Comment;
+use App\Option;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -40,13 +43,24 @@ class ArticleController extends Controller
 	public function getId($id){
 		$article=Article::findOrFail($id);
 
-		$permit=true;
-		if($article->status <> 'accepted'){
-			$permit=false;
-			if(Gate::allows('update',$article)) $permit=true;
+		$readable=false;
+
+		switch(Option::option('verify_articles')->value){
+			case 'accept':
+				$readable=$article->status === 'accepted';
+				break;
+			case 'reject':
+				$readable=$article->status <> 'rejected';
+				break;
+			default:
+				abort(503);
 		}
 
-		if($permit === false){
+		if(Gate::allows('update',$article)){
+			$readable=true;
+		}
+
+		if(!$readable){
 			abort(401);
 		}
 

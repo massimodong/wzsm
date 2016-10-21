@@ -5,6 +5,7 @@
 <body>
 @section('sidebar')
 	<p><a href='/'>Home</a><p>
+	<p><a href='/admin/general'>General</a><p>
 	<p><a href='/admin/users'>Users</a><p>
 	<p><a href='/admin/articles'>Articles</a><p>
 @show
