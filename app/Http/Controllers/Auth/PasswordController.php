@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
@@ -28,5 +30,15 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+     * Use Captcha
+     */
+    public function postEmailWithCaptcha(Request $request){
+	    $this->validate($request,[
+	    	'captcha'=>'required|captcha',
+	    ]);
+	    return PasswordController::postEmail($request);
     }
 }
