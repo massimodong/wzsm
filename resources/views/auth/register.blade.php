@@ -32,6 +32,12 @@ Confirm Password
 </div>
 
 <div>
+<p>Captcha
+<input type="text" name="captcha">
+{!!captcha_img()!!}</p>
+</div>
+
+<div>
 <button type="submit">Register</button>
 </div>
 </form>

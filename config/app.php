@@ -146,9 +146,10 @@ return [
         App\Providers\RouteServiceProvider::class,
 
 	/*
-	 * Mew's Purifier
+	 * Mew's Purifier and Captcha
 	 */
 	Mews\Purifier\PurifierServiceProvider::class,
+	Mews\Captcha\CaptchaServiceProvider::class,
 
     ],
 
@@ -198,7 +199,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 	'Purifier' => Mews\Purifier\Facades\Purifier::class,
-
+	'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ],
 
 ];
