@@ -110,6 +110,10 @@ class ArticleController extends Controller
 		return view('article.edit',['article'=>$article]);
 	}
 
+	public function getIdComments($id){
+		return redirect('/articles/'.$id);
+	}
+
 	public function postIdComments(Request $request,$id){
 		$this->validate($request,[
 			'content' => 'required|min:5',
