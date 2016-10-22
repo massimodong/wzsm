@@ -54,9 +54,16 @@ class User extends Model implements AuthenticatableContract,
     }
 
     /**
-     * get the articles the user has voted
+     * get the articles the user had voted
      */
     public function voted_articles(){
 	    return $this->belongsToMany('App\Article','votearticles','user_id','article_id');
+    }
+
+    /**
+     * get comments the user had voted
+     */
+    public function voted_comments(){
+	    return $this->belongsToMany('App\Comment','votecomments','user_id','comment_id');
     }
 }

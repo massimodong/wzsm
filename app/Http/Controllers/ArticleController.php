@@ -140,6 +140,51 @@ class ArticleController extends Controller
 		return back();
 	}
 
+	public function getIdCommentsVote($article_id,$comment_id){
+		return redirect('/articles/'.$article_id);
+	}
+	public function postIdCommentsVote($article_id,$comment_id){
+		$comment=Comment::findOrFail($comment_id);
+		if($comment->article->id <> $article_id){
+			abort(404);
+		}
+
+		//Already voted
+		if($comment->voting_users()->where('id',Auth::user()->id)->count()){
+			abort(401);
+		}
+
+		$comment->voting_users()->attach(Auth::user()->id);
+
+		$comment->votes = $comment->voting_users()->count();
+		$comment->save();
+
+		return back();
+	}
+
+	public function deleteIdCommentsVote($article_id,$comment_id){
+		$comment=Comment::findOrFail($comment_id);
+		if($comment->article->id <> $article_id){
+			abort(404);
+		}
+
+		//Not voted
+		if($comment->voting_users()->where('id',Auth::user()->id)->count()==0){
+			abort(401);
+		}
+
+		$comment->voting_users()->detach(Auth::user()->id);
+
+		$comment->votes = $comment->voting_users()->count();
+		$comment->save();
+
+		return back();
+	}
+
+	public function getIdVote($id){
+		return redirect('/articles/'.$id);
+	}
+
 	public function postIdVote($id){
 		$article=Article::findOrFail($id);
 

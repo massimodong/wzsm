@@ -22,4 +22,13 @@ class Comment extends Model
 	{
 		return $this->belongsTo(Article::class);
 	}
+
+	/**
+	 * Get the users voting this comment
+	 */
+
+	public function voting_users(){
+		return $this->belongsToMany('App\User','votecomments','comment_id','user_id');
+	}
+
 }

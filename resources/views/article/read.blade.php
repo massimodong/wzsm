@@ -35,7 +35,23 @@
 <h4>Comments:</h4>
 @foreach ($comments as $comment)
 	<p>
-		<strong>{{$comment->user->name}}:</strong>{{$comment->content}}
+		<strong>{{$comment->user->name}}:</strong>
+		{{$comment->content}}
+		<small>({{$comment->votes}} votes)</small>
+
+		@if ( !Auth::check() || Auth::user()->voted_comments()->where('comment_id',$comment->id)->count()==0)
+		<form action='/articles/{{$article->id}}/comments/{{$comment->id}}/vote' method='POST'>
+		{{csrf_field()}}
+		<button type='submit'>Vote</button>
+		</form>
+		@else
+		<form action='/articles/{{$article->id}}/comments/{{$comment->id}}/vote' method='POST'>
+		{{csrf_field()}}
+		{{method_field('DELETE')}}
+		<button type='submit'>Unvote</button>
+		</form>
+		@endif
+
 		@can ('update',$comment)
 		<form action='/articles/{{$article->id}}/comments/{{$comment->id}}' method='POST'>
 		{{csrf_field()}}
