@@ -40,7 +40,7 @@ class ArticleController extends Controller
 
 	/*show the article
 	   */
-	public function getId($id){
+	public function getId(Request $request,$id){
 		$article=Article::findOrFail($id);
 
 		$readable=false;
@@ -62,6 +62,12 @@ class ArticleController extends Controller
 
 		if(!$readable){
 			abort(401);
+		}
+		
+		if(!in_array($article->id , session('articles_read',[])) ){
+			$article->views++;
+			$article->save();
+			$request->session()->push('articles_read',$article->id);
 		}
 
 		$comments = $article->comments;

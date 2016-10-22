@@ -14,6 +14,7 @@
 
 @section('content')
 <h4>{{$article->title}}</h4>
+<small>({{$article->views}} views)</small>
 <div>{!! Purifier::clean($article->content) !!}</div>
 
 <div>
