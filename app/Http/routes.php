@@ -30,6 +30,9 @@ Route::get('articles/{id}/comments','ArticleController@getIdComments'); //redire
 Route::post('/articles/{id}/comments','ArticleController@postIdComments')->middleware(['auth']);
 Route::delete('articles/{article_id}/comments/{comment_id}','ArticleController@deleteIdComment')->middleware(['auth']);
 
+Route::post('articles/{id}/vote','ArticleController@postIdVote')->middleware(['auth']);
+Route::delete('articles/{id}/vote','ArticleController@deleteIdVote')->middleware(['auth']);
+
 // Authentication routes...
 Route::get('/auth/login', 'Auth\AuthController@getLogin');
 Route::post('/auth/login', 'Auth\AuthController@postLogin');

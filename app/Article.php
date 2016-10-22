@@ -21,10 +21,18 @@ class Article extends Model
 	}
 
 	/**
-	 *Get all of the comments for the article
+	 * Get all of the comments for the article
 	 */
 	public function comments(){
 		return $this->hasMany(Comment::class);
+	}
+
+	/**
+	 * Get the users voting this article
+	 */
+
+	public function voting_users(){
+		return $this->belongsToMany('App\User','votearticles','article_id','user_id');
 	}
 
 }

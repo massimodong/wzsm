@@ -52,4 +52,11 @@ class User extends Model implements AuthenticatableContract,
     public function comments(){
 	    return $this->hasMany(Comment::class);
     }
+
+    /**
+     * get the articles the user has voted
+     */
+    public function voted_articles(){
+	    return $this->belongsToMany('App\Article','votearticles','user_id','article_id');
+    }
 }

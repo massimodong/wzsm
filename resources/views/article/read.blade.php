@@ -14,7 +14,21 @@
 
 @section('content')
 <h4>{{$article->title}}</h4>
-<small>({{$article->views}} views)</small>
+<small>({{$article->views}} views,{{$article->votes}} votes)</small>
+
+@if ( !Auth::check() || Auth::user()->voted_articles()->where('article_id',$article->id)->count()==0)
+<form action='/articles/{{$article->id}}/vote' method='POST'>
+{{csrf_field()}}
+<button type='submit'>Vote</button>
+</form>
+@else
+<form action='/articles/{{$article->id}}/vote' method='POST'>
+{{csrf_field()}}
+{{method_field('DELETE')}}
+<button type='submit'>Unvote</button>
+</form>
+@endif
+
 <div>{!! Purifier::clean($article->content) !!}</div>
 
 <div>

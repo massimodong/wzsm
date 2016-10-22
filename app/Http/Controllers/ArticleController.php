@@ -139,4 +139,36 @@ class ArticleController extends Controller
 
 		return back();
 	}
+
+	public function postIdVote($id){
+		$article=Article::findOrFail($id);
+
+		//Current user has voted
+		if($article->voting_users()->where('id',Auth::user()->id)->count()){
+			abort(401);
+		}
+
+		$article->voting_users()->attach(Auth::user()->id);
+
+		$article->votes = $article->voting_users()->count();
+		$article->save();
+
+		return back();
+	}
+
+	public function deleteIdVote($id){
+		$article=Article::findOrFail($id);
+
+		//Current user has NOT voted
+		if($article->voting_users()->where('id',Auth::user()->id)->count()==0){
+			abort(401);
+		}
+
+		$article->voting_users()->detach(Auth::user()->id);
+
+		$article->votes = $article->voting_users()->count();
+		$article->save();
+
+		return back();
+	}
 }
