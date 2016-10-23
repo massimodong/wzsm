@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Gate;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
@@ -33,6 +34,25 @@ class Article extends Model
 
 	public function voting_users(){
 		return $this->belongsToMany('App\User','votearticles','article_id','user_id');
+	}
+
+	/**
+	 * Decide if the article is available according
+	 * to the settings and the current user
+	 */
+	public function available(){
+		if(Gate::allows('update',$this)){
+			return true;
+		}
+
+		switch(Option::option('verify_articles')->value){
+			case 'accept':
+				return $this->status === 'accepted';
+			case 'reject':
+				return $this->status <> 'rejected';
+			default:
+				abort(503);
+		}
 	}
 
 }

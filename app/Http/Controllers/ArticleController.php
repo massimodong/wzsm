@@ -43,27 +43,10 @@ class ArticleController extends Controller
 	public function getId(Request $request,$id){
 		$article=Article::findOrFail($id);
 
-		$readable=false;
-
-		switch(Option::option('verify_articles')->value){
-			case 'accept':
-				$readable=$article->status === 'accepted';
-				break;
-			case 'reject':
-				$readable=$article->status <> 'rejected';
-				break;
-			default:
-				abort(503);
-		}
-
-		if(Gate::allows('update',$article)){
-			$readable=true;
-		}
-
-		if(!$readable){
+		if(!$article->available()){
 			abort(401);
 		}
-		
+	
 		if(!in_array($article->id , session('articles_read',[])) ){
 			$article->views++;
 			$article->save();
@@ -149,6 +132,11 @@ class ArticleController extends Controller
 			abort(404);
 		}
 
+		$article=Article::findOrFail($article_id);
+		if(!$article->available()){
+			abort(401);
+		}
+
 		//Already voted
 		if($comment->voting_users()->where('id',Auth::user()->id)->count()){
 			abort(401);
@@ -166,6 +154,11 @@ class ArticleController extends Controller
 		$comment=Comment::findOrFail($comment_id);
 		if($comment->article->id <> $article_id){
 			abort(404);
+		}
+
+		$article=Article::findOrFail($article_id);
+		if(!$article->available()){
+			abort(401);
 		}
 
 		//Not voted
@@ -188,6 +181,10 @@ class ArticleController extends Controller
 	public function postIdVote($id){
 		$article=Article::findOrFail($id);
 
+		if(!$article->available()){
+			abort(401);
+		}
+
 		//Current user has voted
 		if($article->voting_users()->where('id',Auth::user()->id)->count()){
 			abort(401);
@@ -203,6 +200,10 @@ class ArticleController extends Controller
 
 	public function deleteIdVote($id){
 		$article=Article::findOrFail($id);
+
+		if(!$article->available()){
+			abort(401);
+		}
 
 		//Current user has NOT voted
 		if($article->voting_users()->where('id',Auth::user()->id)->count()==0){
