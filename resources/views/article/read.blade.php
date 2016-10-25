@@ -68,7 +68,7 @@
     <script>
       tinymce.init({
 		          selector: '#comment',
-			  language_url: '/js/tinyMCE/zh_CN.js',
+			  language_url: '/include/js/tinyMCE/zh_CN.js',
 			  width: 500,
 			  height: 100,
 			  plugins: 'autolink contextmenu paste',

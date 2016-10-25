@@ -16,7 +16,7 @@ edit: {{$article->title}}
     <script>
       tinymce.init({
 		          selector: '#content',
-			  language_url: '/js/tinyMCE/zh_CN.js',
+			  language_url: '/include/js/tinyMCE/zh_CN.js',
 			  theme: 'modern',
 			  width: 1000,
 			  height: 800,
