@@ -11,6 +11,7 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use App\Article;
 use App\Comment;
+use App\Image;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
@@ -65,5 +66,12 @@ class User extends Model implements AuthenticatableContract,
      */
     public function voted_comments(){
 	    return $this->belongsToMany('App\Comment','votecomments','user_id','comment_id');
+    }
+
+    /**
+     * Get all of the images for the users
+     */
+    public function images(){
+	    return $this->hasMany(Image::class);
     }
 }

@@ -62,5 +62,8 @@ Route::get('/users/{id}','UserController@getId');
 
 Route::put('/users/{id}/profile','UserController@putIdProfile')->middleware(['auth']);
 
+//Images
+Route::resource('images','ImageController');
+
 //Admin
 Route::controller('/admin','AdminController');
