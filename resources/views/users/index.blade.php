@@ -22,6 +22,7 @@
 		{{method_field('PUT')}}
 
 		<a>name:</a><input type='text' name='name' value='{{$user->name}}'><br/>
+		<a>fullname:</a><input type='text' name='fullname' value='{{$user->fullname}}'><br/>
 		<a>email:</a><input type='text' name='email' value='{{$user->email}}' disabled><br/>
 		<a>role:</a><input type='text' name='role' value='{{$user->role}}' 
 		@can ('changeRole',$user)
@@ -36,6 +37,7 @@
 @else
 	<div>
 		<p>name:{{$user->name}}</p>
+		<p>fullname:{{$user->fullname}}</p>
 		<p>email:{{$user->email}}</p>
 	</div>
 @endcan

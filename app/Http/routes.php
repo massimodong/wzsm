@@ -67,3 +67,6 @@ Route::resource('images','ImageController');
 
 //Admin
 Route::controller('/admin','AdminController');
+
+//ajax
+Route::controller('/ajax','AjaxController');

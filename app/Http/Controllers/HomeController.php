@@ -15,10 +15,10 @@ class HomeController extends Controller
 		$articles=null;
 		switch(Option::option('verify_articles')->value){
 			case 'accept':
-				$articles=Article::where('status','accepted')->get();
+				$articles=Article::where('status','accepted')->where('top',true)->get();
 				break;
 			case 'reject':
-				$articles=Article::where('status','<>','rejected')->get();
+				$articles=Article::where('status','<>','rejected')->where('top',true)->get();
 				break;
 			default:
 				abort(503);

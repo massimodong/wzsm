@@ -17,6 +17,11 @@ Name
 </div>
 
 <div>
+Fullname
+<input type="text" name="fullname" value="{{ old('fullname') }}">
+</div>
+
+<div>
 Email
 <input type="email" name="email" value="{{ old('email') }}">
 </div>

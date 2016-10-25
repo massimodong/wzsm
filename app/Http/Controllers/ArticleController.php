@@ -64,11 +64,19 @@ class ArticleController extends Controller
 		$article=Article::findOrFail($id);
 		$this->authorize('update',$article);
 
+		$this->validate($request,[
+			'top' => 'boolean',
+		]);
+
 		$article->title=$request->title;
 		$article->content=$request->content;
 
 		if(Gate::allows('status',$article)){
 			$article->status=$request->status;
+		}
+
+		if(Gate::allows('top',$article)){//policy not defined yet,only admin
+			$article->top=$request->top;
 		}
 
 		$article->save();

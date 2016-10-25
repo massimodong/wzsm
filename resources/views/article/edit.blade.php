@@ -65,6 +65,12 @@ edit: {{$article->title}}
 {{csrf_field()}}
 {{method_field('PUT')}}
 
+@can ('top',$article)
+
+<div><strong>Top:</strong><input type='text' name='top' value='{{$article->top}}'></input></div>
+
+@endcan
+
 @can ('status',$article)
 	
 <div><strong>Status: </strong><input type='text' name='status' value='{{$article->status}}'></input></div>
