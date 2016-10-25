@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use Storage;
 use Auth;
-use File;
 
 use App\Image;
 
@@ -25,8 +24,12 @@ class ImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
+	    $images = Auth::user()->images;
+
+	    return view('image.show',[
+	    	'images' => $images,
+	    ]);
     }
 
     /**
@@ -109,6 +112,13 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+	    $image = Image::findOrFail($id);
+	    $this->authorize('update',$image);
+
+	    Storage::disk('images')->delete($image->getPath());
+
+	    $image->delete();
+
+	    return back();
     }
 }
