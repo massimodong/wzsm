@@ -74,4 +74,11 @@ class User extends Model implements AuthenticatableContract,
     public function images(){
 	    return $this->hasMany(Image::class);
     }
+
+    /**
+     * Get gravatar url
+     */
+    public function gravatar(){
+	    return "https://gravatar.com/avatar/".md5( strtolower( trim( $this->email ) ) );
+    }
 }

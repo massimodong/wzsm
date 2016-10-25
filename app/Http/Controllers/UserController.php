@@ -27,6 +27,9 @@ class UserController extends Controller
 		$user = User::findOrFail($id);
 		$this->authorize('update' , $user);
 
+		$this->validate($request,[
+			'name' => 'required|min:3|max:255|unique:users,name',
+		]);
 		$user->name = $request->name;
 		
 		if(isset($request->password) && $request->password <> ''){

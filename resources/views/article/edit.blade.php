@@ -16,7 +16,14 @@ edit: {{$article->title}}
     <script>
       tinymce.init({
 		          selector: '#content',
-			  plugins: 'image imagetools paste',
+			  language_url: '/js/tinyMCE/zh_CN.js',
+			  theme: 'modern',
+			  width: 1000,
+			  height: 800,
+			  plugins: 'image imagetools paste autolink autosave code codesample textcolor contextmenu fullscreen link lists media preview save searchreplace colorpicker ',
+			  menubar:false,
+			  toolbar: "undo redo | styleselect formatselect fontselect fontsizeselect | forecolor bold italic underline strikethrough subscript superscript | alignleft aligncenter alignright alignjustify | link image media codesample | bullist numlist outdent indent | removeformat | code searchreplace | fullscreen preview | newdocument | save ",
+			  contextmenu: "link image inserttable | cell row column deletetable | paste",
 			  paste_data_images: true,
 			  images_upload_handler: function (blobInfo, success, failure) {
 

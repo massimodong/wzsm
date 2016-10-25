@@ -12,6 +12,10 @@
 @section('content')
 
 <div>
+<img src='{{$user->gravatar()}}?s=80'>
+</div>
+
+<div>
 @can ('update',$user)
 	<form action='/users/{{$user->id}}/profile' method='POST'>
 		{{csrf_field()}}

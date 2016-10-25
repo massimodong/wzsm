@@ -38,6 +38,13 @@ return [
 						'data'   => true,
 						),
         ],
+	'comment' => [
+            'HTML.Doctype'             => 'XHTML 1.0 Strict',
+            'HTML.Allowed'             => 'a[href],strong,br,p[style]',
+            'CSS.AllowedProperties'    => 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align',
+            'AutoFormat.AutoParagraph' => true,
+            'AutoFormat.RemoveEmpty'   => true,
+	],
         'test'    => [
             'Attr.EnableID' => true
         ],

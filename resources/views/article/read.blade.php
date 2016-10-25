@@ -36,7 +36,7 @@
 @foreach ($comments as $comment)
 	<p>
 		<strong>{{$comment->user->name}}:</strong>
-		{{$comment->content}}
+		{!! Purifier::clean($comment->content,'comment') !!}
 		<small>({{$comment->votes}} votes)</small>
 
 		@if ( !Auth::check() || Auth::user()->voted_comments()->where('comment_id',$comment->id)->count()==0)
@@ -63,11 +63,28 @@
 @endforeach
 </div>
 
+<head>
+  <script src='/vendor/tinymce/tinymce.min.js'></script>
+    <script>
+      tinymce.init({
+		          selector: '#comment',
+			  language_url: '/js/tinyMCE/zh_CN.js',
+			  width: 500,
+			  height: 100,
+			  plugins: 'autolink contextmenu paste',
+			  menubar: false,
+			  toolbar: false,
+			  valid_elements : 'a[href|target=_blank],strong/b,div[align],br',
+			  contextmenu: 'bold paste'
+			    });
+</script>
+</head>
+
 <div>
 <h4>Leave a comment:</h4>
 <form action='/articles/{{$article->id}}/comments' method='POST'>
 	{{csrf_field()}}
-	<textarea name='content'></textarea><br/>
+	<textarea id='comment' name='content'></textarea><br/>
 	<button type='submit'>submit</button>
 </form>
 </div>
