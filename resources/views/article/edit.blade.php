@@ -25,6 +25,7 @@ edit: {{$article->title}}
 			  toolbar: "undo redo | styleselect formatselect fontselect fontsizeselect | forecolor bold italic underline strikethrough subscript superscript | alignleft aligncenter alignright alignjustify | link image media codesample | bullist numlist outdent indent | removeformat | code searchreplace | fullscreen preview | newdocument | save ",
 			  contextmenu: "link image inserttable | cell row column deletetable | paste",
 			  paste_data_images: true,
+			  imagetools_cors_hosts: ['{{env('IMAGES_CORS')}}'],
 			  images_upload_handler: function (blobInfo, success, failure) {
 
 			  	var xhr, formData;
