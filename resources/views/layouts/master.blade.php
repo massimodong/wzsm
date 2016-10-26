@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  @section('head')
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,6 +30,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    @show
   </head>
 
   <body>
@@ -42,12 +44,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">{{App\Option::option('site_name')->value}}</a>
+          <a class="navbar-brand" href="/home">{{App\Option::option('site_name')->value}}</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
+	  @section('sidebar')
             <li id='home_sidebar'><a href="/home">Home</a></li>
             <li id='about_sidebar'><a href="/about">About</a></li>
+	   @show
           </ul>
 	  <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">
@@ -55,6 +59,8 @@
 		    @if (Auth::check())
 		    <img src='{{Auth::user()->gravatar()}}?s=20' class="img-rounded" alt="Cinque Terre"> {{Auth::user()->name}}</a>
 		    <ul class="dropdown-menu">
+		    	<li><a href='#' onclick="document.forms['new_article_form'].submit(); return false;">
+		       <span class="glyphicon glyphicon-pencil"></span> new article</a></li>
 		    	<li><a href="/users/{{Auth::user()->id}}"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
 			@if (Auth::user()->role === 'admin')
 				<li><a href='/admin'><span class="glyphicon glyphicon-menu-hamburger"></span> Admin</a></li>
@@ -75,13 +81,13 @@
       </div>
     </nav>
 
-    <div class="container">
 
-      <div class="starter-template">
       	@yield('content')
-      </div>
 
-    </div><!-- /.container -->
+
+    <form name='new_article_form' action='/articles' method='POST'>
+    		{{ csrf_field() }}
+    </form>
 
 
     <!-- Bootstrap core JavaScript
@@ -92,5 +98,6 @@
     <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/vendor/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+    @yield('scripts')
   </body>
 </html>

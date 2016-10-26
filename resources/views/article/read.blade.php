@@ -71,11 +71,11 @@
 			  language_url: '/include/js/tinyMCE/zh_CN.js',
 			  width: 500,
 			  height: 100,
-			  plugins: 'autolink contextmenu paste',
+			  plugins: 'autolink contextmenu paste code',
 			  menubar: false,
 			  toolbar: false,
-			  valid_elements : 'a[href|target=_blank],strong/b,div[align],br',
-			  contextmenu: 'bold paste'
+			  valid_elements : 'a[href|target=_blank],strong/b,div[align],br,p',
+			  contextmenu: 'bold paste code'
 			    });
 </script>
 </head>
