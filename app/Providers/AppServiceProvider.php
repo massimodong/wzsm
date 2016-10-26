@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
 	    $this->publishes([
 			    'vendor/tinymce/tinymce' => public_path('vendor/tinymce'),
+			    'vendor/twbs/bootstrap'  => public_path('vendor/bootstrap'),
 	    ], 'public');
     }
 
