@@ -8,7 +8,7 @@
 
 	<h1>{{$article->title}}</h1>
 	@can('update',$article)
-		<small ><a href='/articles/{{$article->id}}/edit'>edit</a></small>
+		<small ><a href='/articles/{{$article->id}}/edit'>{{trans('wzsm.edit')}}</a></small>
 	@endcan
 
 	<p class="lead">by <a href='/users/{{$article->user->id}}'>{{$article->user->name}}</a>
@@ -27,7 +27,7 @@
 
 	<p>
 	<span class="glyphicon glyphicon-time"></span>
-	Last updated on {{$article->updated_at}}<br>
+	{{trans('wzsm.last_updated_at')}} {{$article->updated_at}}<br>
 	</p>
 
 	<hr>
@@ -37,13 +37,13 @@
 	<hr>
 
 	<div class="well">
-		<h4>Leave a comment</h4>
+		<h4>{{trans('wzsm.leave_comment')}}</h4>
 		<form action='/articles/{{$article->id}}/comments' method='POST'>
 			{{csrf_field()}}
 			<div class="form-group">
 				<textarea id='comment' name='content'></textarea><br/>
 			</div>
-			<button type='submit' class="btn btn-primary">submit</button>
+			<button type='submit' class="btn btn-primary">{{trans('wzsm.submit')}}</button>
 		</form>
 	</div>
 
@@ -63,7 +63,7 @@
 				<form action='/articles/{{$article->id}}/comments/{{$comment->id}}' method='POST'>
 					{{csrf_field()}}
 					{{method_field('DELETE')}}
-					<a href="#" onclick="$(this).closest('form').submit();">del</a>
+					<a href="#" onclick="$(this).closest('form').submit();">{{trans('wzsm.delete')}}</a>
 				</form>
 				@endcan
 				</small>

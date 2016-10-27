@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
 @section('title')
-edit: {{$article->title}}
+{{trans('wzsm.edit')}}: {{$article->title}}
 @endsection
 
 @section('sidebar')
 @parent
 <li><a href="#" onclick="document.forms['article_form'].submit(); return false;">
-		       <span class="glyphicon glyphicon-save-file"></span> save</a>
+		       <span class="glyphicon glyphicon-save-file"></span> {{trans('wzsm.save')}}</a>
 </i>
 @endsection
 
@@ -25,7 +25,7 @@ edit: {{$article->title}}
 			@if($article->top)
 			checked
 			@endif
-			> Top
+			> {{trans('wzsm.top')}}
 		</label>
 	</div>
 @endcan
@@ -34,11 +34,11 @@ edit: {{$article->title}}
 <div>
 	<select name='status' class="form-control" >
 		@if($article->status === 'accepted')
-		<option value='accepted'>accept</option>
-		<option value='rejected'>reject</option>
+		<option value='accepted'>{{trans('wzsm.accept')}}</option>
+		<option value='rejected'>{{trans('wzsm.reject')}}</option>
 		@else
-		<option value='rejected'>reject</option>
-		<option value='accepted'>accept</option>
+		<option value='rejected'>{{trans('wzsm.reject')}}</option>
+		<option value='accepted'>{{trans('wzsm.accpet')}}</option>
 		@endif
 	</select>
 </div>
@@ -46,21 +46,22 @@ edit: {{$article->title}}
 @endcan
 
 <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" class="form-control" id="title" name="title"  value="{{$article->title}}" placeholder="Title">
+    <label for="title">{{trans('wzsm.title')}}</label>
+    <input type="text" class="form-control" id="title"
+    name="title"  value="{{$article->title}}" placeholder="{{trans('wzsm.title')}}">
 </div>
 
 <div class="form-group">
-    <label for="description">Description</label>
+    <label for="description">{{trans('wzsm.description')}}</label>
     <textarea class="form-control" id="description" style="resize:none"
-    name="description" placeholder="A brief description">{{$article->description}}</textarea>
+    name="description" placeholder="{{trans('wzsm.a_brief_description')}}">{{$article->description}}</textarea>
 </div>
 
 <div class="row">
 	<div class="form-group col-lg-11">
-		<label for="sample_image">Image</label>
+		<label for="sample_image">{{trans('wzsm.home_image')}}</label>
 	      	<input type="text" class="form-control" id="sample_image"
-		name="image"  value="{{$article->image}}" placeholder="Image">
+		name="image"  value="{{$article->image}}" placeholder="{{trans('wzsm.home_image_hint')}}">
 	</div>
 	<div class="form-group col-lg-1">
 		@if ($article->image <> '')
@@ -70,17 +71,16 @@ edit: {{$article->title}}
 </div>
 
 <div class="form-group">
-    <label for="content">Content</label>
     <textarea id='content' name='content'>{{$article->content}}</textarea>
 </div>
 
 </form>
 
-<form action='/articles/{{$article->id}}' method='POST' onsubmit="return confirm('Do you really want to submit the form?');">
+<form action='/articles/{{$article->id}}' method='POST' onsubmit="return confirm('{{trans('wzsm.really_delete')}}');">
 {{csrf_field()}}
 {{method_field('DELETE')}}
 
-<button type="submit" class="btn btn-danger">Delete article</button>
+<button type="submit" class="btn btn-danger">{{trans('wzsm.delete_article')}}</button>
 </form>
 </div></div></div>
 @endsection

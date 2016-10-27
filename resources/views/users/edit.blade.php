@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-edit {{$user->name}}
+{{trans('wzsm.edit')}} {{$user->name}}
 @endsection
 
 @section('content')
@@ -13,30 +13,27 @@ edit {{$user->name}}
 	{{csrf_field()}}
 	{{method_field('PUT')}}
 	<div class="form-group">
-		<label for="inputName">Name</label>
+		<label for="inputName">{{trans('wzsm.name')}}</label>
 		<input type="text" class="form-control" id="inputName" 
-		name="name" placeholder="Name" value="{{$user->name}}">
+		name="name" placeholder="{{trans('wzsm.name')}}" value="{{$user->name}}">
 	</div>
 
-	<form>
 	<div class="form-group">
-		<label for="inputFullname">Full Name</label>
+		<label for="inputFullname">{{trans('wzsm.fullname')}}</label>
 		<input type="text" class="form-control" id="inputFullname"
-		name="fullname" placeholder="Full Name" value="{{$user->fullname}}">
+		name="fullname" placeholder="{{trans('wzsm.fullname')}}" value="{{$user->fullname}}">
 	</div>
 
-	<form>
 	<div class="form-group">
 		<label for="inputEmail">Email</label>
 		<input type="email" class="form-control" id="inputEmail"
 		name="email" placeholder="Email" value="{{$user->email}}" disabled>
 	</div>
 
-	<form>
 	<div class="form-group">
-		<label for="inputRole">Role</label>
+		<label for="inputRole">{{trans('wzsm.role')}}</label>
 		<input type="text" class="form-control" id="inputRole"
-		name="role" placeholder="Role" value="{{$user->role}}"
+		name="role" placeholder="{{trans('wzsm.role')}}" value="{{$user->role}}"
 		@can ('changeRole',$user)
 		@else
 		disabled
@@ -44,26 +41,25 @@ edit {{$user->name}}
 		>
 	</div>
 
-	<form>
 	<div class="form-group">
-		<label for="inputDescription">Brief description</label>
+		<label for="inputDescription">{{trans('wzsm.user_description')}}</label>
 		<textarea class="form-control" id="inputDescription" name="description" style="resize:none"
-		placeholder="description">{{$user->description}}</textarea>
+		placeholder="{{trans('wzsm.user_description_hint')}}">{{$user->description}}</textarea>
 	</div>
 
 	<div class="form-group">
-		<label for="inputPassword">Password</label>
+		<label for="inputPassword">{{trans('wzsm.password')}}</label>
 		<input type="password" class="form-control" id="inputPassword" 
-		name="password" placeholder="Password">
+		name="password" placeholder="{{trans('wzsm.password')}}">
 	</div>
 
 	<div class="form-group">
-		<label for="inputPasswordConfirm">Password Confirm</label>
+		<label for="inputPasswordConfirm">{{trans('wzsm.password_confirm')}}</label>
 		<input type="password" class="form-control" id="inputPasswordConfirm" 
-		name="password_confirmation" placeholder="Password Confirm">
+		name="password_confirmation" placeholder="{{trans('wzsm.password_confirm')}}">
 	</div>
 
-	<button type="submit" class="btn btn-default">Submit</button>
+	<button type="submit" class="btn btn-default">{{trans('wzsm.submit')}}</button>
 	</form>
 </div>
 </div>

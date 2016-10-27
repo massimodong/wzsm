@@ -66,6 +66,7 @@ class ArticleController extends Controller
 
 		$this->validate($request,[
 			'top' => 'boolean',
+			'image' => 'active_url',
 		]);
 
 		$article->title=$request->title;

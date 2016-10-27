@@ -50,9 +50,9 @@
           <ul class="nav navbar-nav">
 	  @section('sidebar')
             <li id='home_sidebar'><a href="/home">
-	    <span class="glyphicon glyphicon-home"></span> Home</a></li>
+	    <span class="glyphicon glyphicon-home"></span> {{trans('wzsm.home')}}</a></li>
             <li id='about_sidebar'><a href="/about">
-	    <span class="glyphicon glyphicon-question-sign"></span> About</a></li>
+	    <span class="glyphicon glyphicon-question-sign"></span> {{trans('wzsm.about')}}</a></li>
 	   @show
           </ul>
 	  <ul class="nav navbar-nav navbar-right">
@@ -62,19 +62,19 @@
 		    <img src='{{Auth::user()->gravatar()}}?s=20' class="img-rounded" alt="avatar"> {{Auth::user()->name}}</a>
 		    <ul class="dropdown-menu">
 		    	<li><a href='#' onclick="document.forms['new_article_form'].submit(); return false;">
-		       <span class="glyphicon glyphicon-pencil"></span> new article</a></li>
-		    	<li><a href="/users/{{Auth::user()->id}}"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+		       <span class="glyphicon glyphicon-pencil"></span> {{trans('wzsm.new_article')}}</a></li>
+		    	<li><a href="/users/{{Auth::user()->id}}"><span class="glyphicon glyphicon-user"></span> {{trans('wzsm.profile')}}</a></li>
 			@if (Auth::user()->role === 'admin')
-				<li><a href='/admin'><span class="glyphicon glyphicon-menu-hamburger"></span> Admin</a></li>
+				<li><a href='/admin'><span class="glyphicon glyphicon-menu-hamburger"></span> {{trans('wzsm.admin')}}</a></li>
 			@endif
-		    	<li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+		    	<li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out"></span> {{trans('wzsm.logout')}}</a></li>
 		    </ul>
 		    @else
-		    Account
+			{{trans('wzsm.account')}}
 		    <span class="caret"></span></a>
 		    <ul class="dropdown-menu">
-		              <li><a href="/auth/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-		              <li><a href="/auth/register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+		              <li><a href="/auth/login"><span class="glyphicon glyphicon-log-in"></span> {{trans('wzsm.login')}}</a></li>
+		              <li><a href="/auth/register"><span class="glyphicon glyphicon-user"></span> {{trans('wzsm.register')}}</a></li>
 		    </ul>
 		    @endif
             </li>
@@ -86,7 +86,7 @@
 	@foreach ($errors->all() as $error)
 		<div class="alert alert-danger">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			<strong>Error!</strong><br>{{$error}}
+			<strong>{{trans('wzsm.error')}}!</strong><br>{{$error}}
 		 </div>
 	@endforeach
 @endif

@@ -1,5 +1,8 @@
 @extends('layouts.master')
-@section('title','Home')
+@section('title')
+{{trans('wzsm.home')}}
+@endsection
+
 @section('content')
 <div class='container'>
 	<div class='cold-md-9'>
@@ -43,7 +46,7 @@ function addArticle(item,index){
 
 	var description=item.description;
 	if(description == ''){
-		description='<p>This article needs a description</p>';
+		description='<p>{{trans('wzsm.need_description')}}</p>';
 	}
 	var html=`<div class="col-sm-4 col-lg-4 col-md-4">
 		<div class="thumbnail">
@@ -82,7 +85,7 @@ function expand(){
 			
 			if(json.length == 0){
 				$(articles_loader).attr('class','');
-				$(articles_loader).append('<p>No more articles</p>');
+				$(articles_loader).append('<p>{{trans('wzsm.no_more_articles')}}</p>');
 				return;
 			}
 

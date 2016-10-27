@@ -13,17 +13,17 @@
 			<div class="col-sm-12">
 				<div class="col-xs-12 col-sm-8">
 					<h2>{{$user->fullname}}</h2>
-					<p><strong>name:</strong>{{$user->name}}</p>
-					<p><strong>role:</strong>{{$user->role}}</p>
-					<p><strong>description:</strong>
+					<p><strong>{{trans('wzsm.name')}}:</strong>{{$user->name}}</p>
+					<p><strong>{{trans('wzsm.role')}}:</strong>{{trans('wzsm.role_'.$user->role)}}</p>
+					<p><strong>{{trans('wzsm.description')}}:</strong>
 					@if ($user->description == '')
-						not any descriptions!
+						{{trans('wzsm.no_descriptions')}}
 					@else
 						{{$user->description}}
 					@endif
 					</p>
 					@can ('update',$user)
-					<p><a href='/users/{{$user->id}}/edit'>edit</a></p>
+					<p><a href='/users/{{$user->id}}/edit'>{{trans('wzsm.edit')}}</a></p>
 					@endcan
 				</div>
 				<div class="col-xs-12 col-sm-4 text-center">
@@ -39,7 +39,7 @@
 		<div class="well profile col-md-6 col-xs-12">
 			<div class="col-sm-12">
 				<div class="col-xs-12 col-sm-12">
-					<h3>articles:</h3>
+					<h3>{{trans('wzsm.his_articles')}}:</h3>
 					<div class="row">
 					@foreach ($articles as $article)
 						<div class="col-md-6 col-xs-12">
@@ -50,7 +50,7 @@
 						</div>
 						<div class="col-md-2 col-xs-6">
 						@if ($article->top)
-						<p class="pull-right">top</p>
+						<p class="pull-right">{{trans('wzsm.top')}}</p>
 						@endif
 						</div>
 					@endforeach
