@@ -1,49 +1,32 @@
 @extends('layouts.master')
-
 @section('title', 'register')
 
-@section('sidebar')
-	@parent
-
-@endsection
-
 @section('content')
-<form method="POST" action="/auth/register">
+<form class="form-register" method="POST" action="/auth/register">
 {!! csrf_field() !!}
 
-<div>
-Name
-<input type="text" name="name" value="{{ old('name') }}">
-</div>
+<h2 class="form-register-heading">Register</h2>
 
-<div>
-Fullname
-<input type="text" name="fullname" value="{{ old('fullname') }}">
-</div>
+<label for="inputName" class="sr-only">Name</label>
+<input type="text" id="inputName" class="form-control" placeholder="Name" name="name" value="{{old('name')}}" required autofocus>
 
-<div>
-Email
-<input type="email" name="email" value="{{ old('email') }}">
-</div>
+<label for="inputFullname" class="sr-only">Full Name</label>
+<input type="text" id="inputFullname" class="form-control" placeholder="Full Name" name="fullname" value="{{old('fullname')}}">
 
-<div>
-Password
-<input type="password" name="password">
-</div>
+<label for="inputEmail" class="sr-only">Email</label>
+<input type="email" id="inputEmail" class="form-control" placeholder="Email Address" name="email" value="{{old('email')}}" required>
 
-<div>
-Confirm Password
-<input type="password" name="password_confirmation">
-</div>
+<label for="inputPassword" class="sr-only">Password</label>
+<input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
 
-<div>
-<p>Captcha
-<input type="text" name="captcha">
-{!!captcha_img()!!}</p>
-</div>
+<label for="inputPasswordConfirm" class="sr-only">Password Confirm</label>
+<input type="password" id="inputPasswordConfirm" class="form-control" placeholder="Password Confirm" name="password_confirmation" required>
 
-<div>
-<button type="submit">Register</button>
-</div>
+<label for="inputCaptcha" class="sr-only">Captcha</label>
+<input type="text" id="inputCaptcha" class="form-control" placeholder="captcha" name="captcha" required>
+
+<img src="{{captcha_src('flat')}}">
+
+<button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
 </form>
 @endsection

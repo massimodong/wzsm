@@ -2,37 +2,32 @@
 
 @section('title', 'login')
 
-@section('sidebar')
-	@parent
-
-@endsection
-
 
 @section('content')
-<form method="POST" action="/auth/login">
+<div class="container">
+<form class="form-signin" method="POST" action="/auth/login">
 {!! csrf_field() !!}
 
-<div>
-Email
-<input type="email" name="email" value="{{ old('email') }}">
-</div>
+<h2 class="form-signin-heading">Please sign in</h2>
 
-<div>
-Password
-<input type="password" name="password" id="password">
-</div>
+<label for="inputEmail" class="sr-only">Email address</label>
+<input type="email" id="inputEmail" class="form-control" placeholder="Email Address" name="email" value="{{ old('email') }}" required autofocus>
 
-<div>
+<label for="inputPassword" class="sr-only">Password</label>
+<input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+
+<div class="checkbox">
+<label>
 <input type="checkbox" name="remember"> Remember Me
+</label>
 </div>
 
-<div>
-<button type="submit">Login</button>
-</div>
+<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 
 <div>
-<a href='/auth/register'> register</a><br>
 <a href='/password/email'>forgot password?</a><br>
 </div>
+
 </form>
+</div>
 @endsection
