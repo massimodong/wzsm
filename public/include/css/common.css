@@ -141,3 +141,82 @@ footer {
   z-index: 2;
 }
 
+/**
+ * Profiles from http://bootsnipp.com/snippets/featured/flat-user-profile-ui
+ */
+.profile 
+{
+	min-height: 35px;
+	display: inline-block;
+}
+figcaption.ratings
+{
+	margin-top:20px;
+}
+figcaption.ratings a
+{
+color:#f1c40f;
+      font-size:11px;
+}
+figcaption.ratings a:hover
+{
+color:#f39c12;
+      text-decoration:none;
+}
+.profile-divider 
+{
+	border-top:1px solid rgba(0,0,0,0.1);
+}
+.profile-emphasis 
+{
+	border-top: 4px solid transparent;
+}
+.profile-emphasis:hover 
+{
+	border-top: 4px solid #1abc9c;
+}
+.profile-emphasis h2
+{
+	margin-bottom:0;
+}
+span.tags 
+{
+background: #1abc9c;
+	    border-radius: 2px;
+color: #f5f5f5;
+       font-weight: bold;
+padding: 2px 4px;
+}
+.profile-dropdown-menu 
+{
+	background-color: #34495e;    
+	box-shadow: none;
+	-webkit-box-shadow: none;
+width: 250px;
+       margin-left: -125px;
+left: 50%;
+}
+.profile-dropdown-menu .profile-divider 
+{
+background:none;    
+}
+.profile-dropdown-menu>li>a
+{
+color:#f5f5f5;
+}
+.profile-dropup .profile-dropdown-menu 
+{
+	margin-bottom:10px;
+}
+.profile-dropup .profile-dropdown-menu:before 
+{
+content: "";
+	 border-top: 10px solid #34495e;
+	 border-right: 10px solid transparent;
+	 border-left: 10px solid transparent;
+position: absolute;
+bottom: -10px;
+left: 50%;
+      margin-left: -10px;
+      z-index: 10;
+}

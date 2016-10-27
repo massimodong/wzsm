@@ -10,9 +10,6 @@
 <label for="inputName" class="sr-only">Name</label>
 <input type="text" id="inputName" class="form-control" placeholder="Name" name="name" value="{{old('name')}}" required autofocus>
 
-<label for="inputFullname" class="sr-only">Full Name</label>
-<input type="text" id="inputFullname" class="form-control" placeholder="Full Name" name="fullname" value="{{old('fullname')}}">
-
 <label for="inputEmail" class="sr-only">Email</label>
 <input type="email" id="inputEmail" class="form-control" placeholder="Email Address" name="email" value="{{old('email')}}" required>
 
