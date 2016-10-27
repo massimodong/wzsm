@@ -71,11 +71,15 @@ class ArticleController extends Controller
 			'image' => 'active_url',
 		]);
 
+		if( ($article->title <> $request->title)||
+			($article->content <> $request->content) ){
+			$article->updated_at=date('Y-m-d H:i:s');
+		}
+
 		$article->title=$request->title;
 		$article->description=$request->description;
 		$article->image=$request->image;
 		$article->content=$request->content;
-		$article->updated_at=date('Y-m-d H:i:s');
 
 		if(Gate::allows('status',$article)){
 			$article->status=$request->status;
