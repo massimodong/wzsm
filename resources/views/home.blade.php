@@ -47,7 +47,7 @@ function addArticle(item,index){
 	}
 	var html=`<div class="col-sm-4 col-lg-4 col-md-4">
 		<div class="thumbnail">
-		 <img src="` + image + `" alt="">
+		 <a href="/articles/` + item.id + `"><img src="` + image + `" alt=""></a>
 		 <div class="caption">
 		 <h5 class="pull-right">
 		 <span class='glyphicon glyphicon-thumbs-up'></span> `+ item.votes +`<br/>

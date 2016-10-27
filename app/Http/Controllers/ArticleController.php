@@ -69,6 +69,8 @@ class ArticleController extends Controller
 		]);
 
 		$article->title=$request->title;
+		$article->description=$request->description;
+		$article->image=$request->image;
 		$article->content=$request->content;
 
 		if(Gate::allows('status',$article)){

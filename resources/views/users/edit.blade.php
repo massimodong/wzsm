@@ -47,7 +47,7 @@ edit {{$user->name}}
 	<form>
 	<div class="form-group">
 		<label for="inputDescription">Brief description</label>
-		<textarea class="form-control" id="inputDescription" name="description"
+		<textarea class="form-control" id="inputDescription" name="description" style="resize:none"
 		placeholder="description">{{$user->description}}</textarea>
 	</div>
 

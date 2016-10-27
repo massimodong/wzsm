@@ -51,6 +51,25 @@ edit: {{$article->title}}
 </div>
 
 <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" id="description" style="resize:none"
+    name="description" placeholder="A brief description">{{$article->description}}</textarea>
+</div>
+
+<div class="row">
+	<div class="form-group col-lg-11">
+		<label for="sample_image">Image</label>
+	      	<input type="text" class="form-control" id="sample_image"
+		name="image"  value="{{$article->image}}" placeholder="Image">
+	</div>
+	<div class="form-group col-lg-1">
+		@if ($article->image <> '')
+		<img src="{{$article->image}}" class="img-thumbnail">
+		@endif
+	</div>
+</div>
+
+<div class="form-group">
     <label for="content">Content</label>
     <textarea id='content' name='content'>{{$article->content}}</textarea>
 </div>

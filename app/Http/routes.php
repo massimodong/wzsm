@@ -14,6 +14,7 @@
 Route::any('/','CommonController@redirectToHome');
 
 //Home
+Route::get('/about','HomeController@about');
 Route::controller('/home','HomeController');
 
 //Articles

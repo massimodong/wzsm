@@ -11,6 +11,9 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
+	public function about(){
+		return view('about');
+	}
 	public function getIndex(){
 		$articles=null;
 		switch(Option::option('verify_articles')->value){
