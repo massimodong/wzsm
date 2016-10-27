@@ -28,7 +28,7 @@ class UserPolicy
 	    return $user->id === $me->id;
     }
 
-    public function changeRoll($user,$ability){
+    public function changeRole($user,$ability){
     	return $user->role === 'admin';
     }
 }

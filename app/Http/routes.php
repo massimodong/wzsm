@@ -60,6 +60,7 @@ Route::get('/users','UserController@getIndex')->middleware(['auth']);
 
 Route::get('/users/{id}','UserController@getId');
 
+Route::get('/users/{id}/edit','UserController@getIdEdit')->middleware(['auth']);
 Route::put('/users/{id}/profile','UserController@putIdProfile')->middleware(['auth']);
 
 //Images

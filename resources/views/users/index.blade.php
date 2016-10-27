@@ -22,6 +22,9 @@
 						{{$user->description}}
 					@endif
 					</p>
+					@can ('update',$user)
+					<p><a href='/users/{{$user->id}}/edit'>edit</a></p>
+					@endcan
 				</div>
 				<div class="col-xs-12 col-sm-4 text-center">
 					<figure>

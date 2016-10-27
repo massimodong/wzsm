@@ -17,10 +17,17 @@ class UserController extends Controller
 		return redirect('/users/'.Auth::user()->id);
 	}
 
-	public function getId($id){
+	public function getId(Request $request,$id){
 		$user = User::findOrFail($id);
 		$articles = $user->articles;
 		return view('users.index',['user'=>$user , 'articles'=>$articles]);
+	}
+
+	public function getIdEdit(Request $request,$id){
+		$user = User::findOrFail($id);
+		$this->authorize('update' , $user);
+
+		return view('users.edit',['user'=>$user]);
 	}
 
 	public function putIdProfile(Request $request,$id){
@@ -28,6 +35,7 @@ class UserController extends Controller
 		$this->authorize('update' , $user);
 
 		$user->fullname=$request->fullname;
+		$user->description=$request->description;
 
 		if(isset($request->name) && $request->name <> '' && $request->name <> $user->name){
 			$this->validate($request,[

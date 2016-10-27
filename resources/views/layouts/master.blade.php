@@ -82,6 +82,14 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+@if (count($errors) > 0 )
+	@foreach ($errors->all() as $error)
+		<div class="alert alert-danger">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Error!</strong><br>{{$error}}
+		 </div>
+	@endforeach
+@endif
 
 
       	@yield('content')
