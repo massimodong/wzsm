@@ -27,7 +27,9 @@
 
 	<p>
 	<span class="glyphicon glyphicon-time"></span>
-	{{trans('wzsm.last_updated_at')}} {{$article->updated_at}}<br>
+	{{trans('wzsm.last_updated_at')}} {{$article->updated_at}} &emsp;
+	<span class="glyphicon glyphicon-eye-open"></span>
+	{{$article->views}}
 	</p>
 
 	<hr>

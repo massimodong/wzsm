@@ -38,7 +38,7 @@
 		<option value='rejected'>{{trans('wzsm.reject')}}</option>
 		@else
 		<option value='rejected'>{{trans('wzsm.reject')}}</option>
-		<option value='accepted'>{{trans('wzsm.accpet')}}</option>
+		<option value='accepted'>{{trans('wzsm.accept')}}</option>
 		@endif
 	</select>
 </div>

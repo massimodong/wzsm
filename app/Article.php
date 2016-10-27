@@ -12,7 +12,9 @@ class Article extends Model
 	 *
 	 * @var array
 	 */
-	protected $fillable=['title' , 'content'];
+	protected $fillable=['created_at' ,'updated_at' ,'title' , 'content'];
+
+	public $timestamps = false;
 
 	/**
 	 * Get the user that owns the article.

@@ -27,7 +27,7 @@
 <script>document.getElementById('home_sidebar').className='active'</script>
 
 <script>
-var LastTime='{{date("Y-m-d H:i:s"),time()+1}}';
+var LastTime='{{date("Y-m-d H:i:s",time()+1)}}';
 var isExpanding=true;
 var Arts={!!$articles->toJson()!!};
 var shownArticles={};

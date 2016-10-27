@@ -30,6 +30,8 @@ class ArticleController extends Controller
 		$article=$request->user()->articles()->create([
 			'title'=>'',
 			'content'=>'',
+			'created_at'=>date('Y-m-d H:i:s'),
+			'updated_at'=>date('Y-m-d H:i:s'),
 		]);
 		if(Gate::allows('status',$article)){
 			$article->status='accepted';
@@ -73,6 +75,7 @@ class ArticleController extends Controller
 		$article->description=$request->description;
 		$article->image=$request->image;
 		$article->content=$request->content;
+		$article->updated_at=date('Y-m-d H:i:s');
 
 		if(Gate::allows('status',$article)){
 			$article->status=$request->status;
