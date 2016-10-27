@@ -49,15 +49,17 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
 	  @section('sidebar')
-            <li id='home_sidebar'><a href="/home">Home</a></li>
-            <li id='about_sidebar'><a href="/about">About</a></li>
+            <li id='home_sidebar'><a href="/home">
+	    <span class="glyphicon glyphicon-home"></span> Home</a></li>
+            <li id='about_sidebar'><a href="/about">
+	    <span class="glyphicon glyphicon-question-sign"></span> About</a></li>
 	   @show
           </ul>
 	  <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">
 	            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 		    @if (Auth::check())
-		    <img src='{{Auth::user()->gravatar()}}?s=20' class="img-rounded" alt="Cinque Terre"> {{Auth::user()->name}}</a>
+		    <img src='{{Auth::user()->gravatar()}}?s=20' class="img-rounded" alt="avatar"> {{Auth::user()->name}}</a>
 		    <ul class="dropdown-menu">
 		    	<li><a href='#' onclick="document.forms['new_article_form'].submit(); return false;">
 		       <span class="glyphicon glyphicon-pencil"></span> new article</a></li>
@@ -93,7 +95,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/docs/assets/js/vendor/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="/vendor/bootstrap/docs/assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

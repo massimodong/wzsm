@@ -6,7 +6,7 @@
 		<div class="starter-template">
 			<div class="row carousel-holder">
 				<div class="jumbotron">
-					<img src='/include/img/hal.png'>
+					<center><img src='/include/img/hal.png' class="img-responsive"  alt="HAL Logo"></center>
  			  		<h1>Have a look</h1> 
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 
 <script>
 var LastTime='{{date("Y-m-d H:i:s"),time()+1}}';
-var isExpanding=false;
+var isExpanding=true;
 var Arts={!!$articles->toJson()!!};
 var shownArticles={};
 
@@ -97,7 +97,7 @@ function expand(){
 </script>
 
 <script>
-$(window).load(function(){Arts.forEach(addArticle);})
+$(window).load(function(){Arts.forEach(addArticle);isExpanding=false;})
 $(window).scroll(function() {
 	   if($(window).scrollTop() + $(window).height() >= $(document).height() - 500) {
 	   	expand();

@@ -111,12 +111,12 @@ class ArticleController extends Controller
 		]);
 
 		$article = Article::findOrFail($id);
-		$article->comments()->create([
+		$comment = $article->comments()->create([
 			'user_id' => Auth::user()->id,
 			'content' => $request->content,
 		]);
 
-		return back();
+		return redirect('/articles/'.$id.'#comment'.$comment->id);
 	}
 
 	public function deleteIdComment(Request $request,$article_id,$comment_id){
