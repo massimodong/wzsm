@@ -99,6 +99,14 @@
     		{{ csrf_field() }}
     </form>
 
+	<footer class="footer">
+	<div class="container">
+	<center>
+		<p class="text-muted">Copyright 2016 <a href="https://github.com/massimodong/wzsm" target="_blank">wzsm project</a> by <a href="https://maxmute.com" target="_blank">Massimo Dong</a></p>
+	</center>
+	</div>
+	</footer>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
