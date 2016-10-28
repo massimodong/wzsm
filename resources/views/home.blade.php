@@ -102,7 +102,7 @@ function expand(){
 </script>
 
 <script>
-$(window).load(function(){Arts.forEach(addArticle);isExpanding=false;})
+$(window).load(function(){Arts.forEach(addArticle);isExpanding=false;expand();})
 $(window).scroll(function() {
 	   if($(window).scrollTop() + $(window).height() >= $(document).height() - 500) {
 	   	expand();
