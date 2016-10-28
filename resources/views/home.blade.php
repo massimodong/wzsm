@@ -48,6 +48,7 @@ function addArticle(item,index){
 	if(description == ''){
 		description='<p>{{trans('wzsm.need_description')}}</p>';
 	}
+	/*
 	var html=`<div class="col-sm-4 col-lg-4 col-md-4">
 		<div class="thumbnail">
 		 <a href="/articles/` + item.id + `"><img src="` + image + `" alt=""></a>
@@ -62,7 +63,8 @@ function addArticle(item,index){
 		 <p class="pull-right"><span class='glyphicon glyphicon-eye-open'></span> ` + item.views + `</p>
 		 <p>` + item.updated_at + `</p>
 		 </div></div></div>
-		`;
+		`;*/
+	var html = "<div class=\"col-sm-4 col-lg-4 col-md-4\">\n                <div class=\"thumbnail\">\n                 <a href=\"/articles/" + item.id + "\"><img src=\"" + image + "\" alt=\"\"></a>\n                 <div class=\"caption\">\n                 <h5 class=\"pull-right\">\n                 <span class='glyphicon glyphicon-thumbs-up'></span> " + item.votes + "<br/>\n                 </h5>\n                 <h4><a href=\"/articles/" + item.id + "\">" + item.title + "</a>\n                 </h4>\n                " + description + "</div>\n                <div class=\"details\">\n                 <p class=\"pull-right\"><span class='glyphicon glyphicon-eye-open'></span> " + item.views + "</p>\n                 <p>" + item.updated_at + "</p>\n                 </div></div></div>\n                ";
 	$(articles).append(html);
 }
 
