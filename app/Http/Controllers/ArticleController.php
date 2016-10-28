@@ -83,6 +83,10 @@ class ArticleController extends Controller
 
 		if(Gate::allows('status',$article)){
 			$article->status=$request->status;
+		}else{
+			if($article->status === 'rejected'){
+				$article->status='waiting';
+			}
 		}
 
 		if(Gate::allows('top',$article)){//policy not defined yet,only admin

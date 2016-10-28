@@ -40,9 +40,9 @@
 			<div class="col-sm-12">
 				<div class="col-xs-12 col-sm-12">
 					<h3>{{trans('wzsm.his_articles')}}:</h3>
-					<div class="row">
 					@foreach ($articles as $article)
-						<div class="col-md-6 col-xs-12">
+					<div class="row">
+						<div class="col-md-4 col-xs-12">
 						<p><a href="/articles/{{$article->id}}">
 						@if ($article->title <> '')
 						{{$article->title}}
@@ -54,13 +54,16 @@
 						<div class="col-md-offset-1 col-md-3 col-xs-6">
 						<p><span class="glyphicon glyphicon-thumbs-up"></span> {{$article->votes}}</p>
 						</div>
-						<div class="col-md-2 col-xs-6">
-						@if ($article->top)
-						<p class="pull-right">{{trans('wzsm.top')}}</p>
-						@endif
+						<div class="col-md-4 col-xs-6">
+							<p class="pull-right">
+							[{{trans('wzsm.'.$article->status)}}]
+							@if ($article->top)
+							{{trans('wzsm.top')}}
+							</p>
+							@endif
 						</div>
-					@endforeach
 					</div>
+					@endforeach
 				</div>
 			</div>
 		</div>

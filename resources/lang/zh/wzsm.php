@@ -20,7 +20,7 @@ return [
     'reject'=>'拒绝',
     'edit'=>'编辑',
     'save'=>'保存',
-    'top'=>'置顶',
+    'top'=>'[置顶]',
     'title'=>'标题',
     'description'=>'简介',
     'a_brief_description'=>'请简要介绍您的文章。当然，你可以留空让我们来写。',
@@ -47,4 +47,7 @@ return [
     'captcha'=>'验证码',
     'reset_password'=>'重置密码',
     'untitled'=>'无标题',
+    'accepted'=>'通过',
+    'rejected'=>'拒绝',
+    'waiting'=>'等待审核',
 ];

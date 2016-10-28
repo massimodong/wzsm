@@ -5,7 +5,7 @@
 
 @section('content')
 <div class='container'>
-	<div class='cold-md-9'>
+	<div>
 		<div class="starter-template">
 			<div class="row carousel-holder">
 				<div class="jumbotron">
