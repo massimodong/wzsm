@@ -46,4 +46,5 @@ return [
     'email'=>'邮箱',
     'captcha'=>'验证码',
     'reset_password'=>'重置密码',
+    'untitled'=>'无标题',
 ];

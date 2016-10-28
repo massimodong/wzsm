@@ -29,7 +29,8 @@
 		</div>
 		<div class="form-group col-md-8">
 			<label for="captchaImage"></label><br>
-			<img src="{{captcha_src()}}" id="captchaImage" alt="captcha" class="img-thumbnail"></p>
+			<img src="{{captcha_src()}}" id="captchaImage" alt="captcha"
+			class="img-thumbnail" onclick="changeCaptcha()"></p>
 		</div>
 	</div>
 	

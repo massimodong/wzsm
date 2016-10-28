@@ -43,7 +43,13 @@
 					<div class="row">
 					@foreach ($articles as $article)
 						<div class="col-md-6 col-xs-12">
-						<p><a href="/articles/{{$article->id}}">{{$article->title}}</a></p>
+						<p><a href="/articles/{{$article->id}}">
+						@if ($article->title <> '')
+						{{$article->title}}
+						@else
+						({{trans('wzsm.untitled')}})
+						@endif
+						</a></p>
 						</div>
 						<div class="col-md-offset-1 col-md-3 col-xs-6">
 						<p><span class="glyphicon glyphicon-thumbs-up"></span> {{$article->votes}}</p>

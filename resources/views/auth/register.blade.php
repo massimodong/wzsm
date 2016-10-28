@@ -24,7 +24,7 @@
 <label for="inputCaptcha" class="sr-only">{{trans('wzsm.captcha')}}</label>
 <input type="text" id="inputCaptcha" class="form-control" placeholder="{{trans('wzsm.captcha')}}" name="captcha" required>
 
-<img src="{{captcha_src('flat')}}">
+<img src="{{captcha_src()}}" id="captchaImage" onclick="changeCaptcha()">
 
 <button type="submit" class="btn btn-lg btn-primary btn-block">{{trans('wzsm.register')}}</button>
 </form>

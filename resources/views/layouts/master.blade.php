@@ -30,6 +30,13 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script>
+    	function changeCaptcha(){
+		document.getElementById('captchaImage').src="/captcha/default?"+Date.now();
+	}
+    </script>
+
     @show
   </head>
 
@@ -117,5 +124,6 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/vendor/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
     @yield('scripts')
+
   </body>
 </html>
