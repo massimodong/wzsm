@@ -35,7 +35,7 @@ body {
 }
 
 .caption {
-    height: 130px;
+    min-height: 330px;
     overflow: hidden;
 }
 

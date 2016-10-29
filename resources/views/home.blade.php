@@ -51,20 +51,27 @@ function addArticle(item,index){
 	/*
 	var html=`<div class="col-sm-4 col-lg-4 col-md-4">
 		<div class="thumbnail">
-		 <a href="/articles/` + item.id + `"><img src="` + image + `" alt=""></a>
-		 <div class="caption">
-		 <h5 class="pull-right">
-		 <span class='glyphicon glyphicon-thumbs-up'></span> `+ item.votes +`<br/>
-		 </h5>
-		 <h4><a href="/articles/` + item.id + `">` + item.title + `</a>
-		 </h4>
-		`+ description +`</div>
-		<div class="details">
-		 <p class="pull-right"><span class='glyphicon glyphicon-eye-open'></span> ` + item.views + `</p>
-		 <p>` + item.updated_at + `</p>
-		 </div></div></div>
-		`;*/
-	var html = "<div class=\"col-sm-4 col-lg-4 col-md-4\">\n                <div class=\"thumbnail\">\n                 <a href=\"/articles/" + item.id + "\"><img src=\"" + image + "\" alt=\"\"></a>\n                 <div class=\"caption\">\n                 <h5 class=\"pull-right\">\n                 <span class='glyphicon glyphicon-thumbs-up'></span> " + item.votes + "<br/>\n                 </h5>\n                 <h4><a href=\"/articles/" + item.id + "\">" + item.title + "</a>\n                 </h4>\n                " + description + "</div>\n                <div class=\"details\">\n                 <p class=\"pull-right\"><span class='glyphicon glyphicon-eye-open'></span> " + item.views + "</p>\n                 <p>" + item.updated_at + "</p>\n                 </div></div></div>\n                ";
+			<div class="row">
+				<div class="col-lg-12">
+				 <a href="/articles/` + item.id + `"><img src="` + image + `" alt=""></a>
+				 </div>
+				 <div class="col-lg-12">
+				 	<div class="" style="padding: 9px;min-height: 150px;">
+					 <h4><a href="/articles/` + item.id + `">` + item.title + `</a>
+					 </h4>
+					`+ description +`</div>
+				</div>
+				<div class="col-lg-12">
+				 <p class="pull-right" style="padding: 9px;">
+				 <span class='glyphicon glyphicon-eye-open'></span> ` + item.views + 
+				 `&emsp;<span class="glyphicon glyphicon-thumbs-up"></span> `+item.votes+`</p>
+				 <p style="padding: 9px;">` + item.updated_at + `</p>
+		 		</div>
+			</div>
+		 </div></div>
+		`;
+		*/
+	var html = "<div class=\"col-sm-4 col-lg-4 col-md-4\">\n                <div class=\"thumbnail\">\n                        <div class=\"row\">\n                                <div class=\"col-lg-12\">\n                                 <a href=\"/articles/" + item.id + "\"><img src=\"" + image + "\" alt=\"\"></a>\n                                 </div>\n                                 <div class=\"col-lg-12\">\n                                        <div class=\"\" style=\"padding: 9px;min-height: 150px;\">\n                                         <h4><a href=\"/articles/" + item.id + "\">" + item.title + "</a>\n                                         </h4>\n                                        " + description + "</div>\n                                </div>\n                                <div class=\"col-lg-12\">\n                                 <p class=\"pull-right\" style=\"padding: 9px;\">\n                                 <span class='glyphicon glyphicon-eye-open'></span> " + item.views + "&emsp;<span class=\"glyphicon glyphicon-thumbs-up\"></span> " + item.votes + "</p>\n                                 <p style=\"padding: 9px;\">" + item.updated_at + "</p>\n                                </div>\n                        </div>\n                 </div></div>\n                ";
 	$(articles).append(html);
 }
 
