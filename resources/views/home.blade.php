@@ -83,7 +83,6 @@ function expand(){
 
 	var xhr;
 	xhr = new XMLHttpRequest();
-        xhr.withCredentials = false;
         xhr.open('get', '/ajax/articles?from='+LastTime);
 
 	xhr.onload = function(){
