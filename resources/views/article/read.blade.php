@@ -22,11 +22,11 @@ function genQzoneShare() {
 		/*是否显示分享总数,显示：'1'，不显示：'0' */
 		desc: '',
 		/*默认分享理由(可选)*/
-		summary: '{{$article->description}}',
+		summary: decodeEntities('{{$article->description}}'),
 		/*分享摘要(可选)*/
-		title: '{{$article->title}}',
+		title: decodeEntities('{{$article->title}}'),
 		/*分享标题(可选)*/
-		site: 'WZSM',
+		site: decodeEntities("{{App\Option::option('site_name')->value}}"),
 		/*分享来源 如：腾讯网(可选)*/
 		pics: image,
 		/*分享图片的路径(可选)*/

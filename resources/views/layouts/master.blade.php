@@ -31,6 +31,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="/include/js/common.js"></script>
+
     <script>
     	function changeCaptcha(){
 		document.getElementById('captchaImage').src="/captcha/default?"+Date.now();
