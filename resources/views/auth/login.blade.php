@@ -4,6 +4,12 @@
 {{trans('wzsm.login')}}
 @endsection
 
+@section('head')
+@parent
+@include('layouts.forceHttps')
+
+@endsection
+
 
 @section('content')
 <div class="container">

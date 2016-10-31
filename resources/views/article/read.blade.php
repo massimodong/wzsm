@@ -5,6 +5,9 @@
 
 @section('head')
 @parent
+
+@include('layouts.forceHttp')
+
 <!-- Qzone Share-->
 <script type="text/javascript">
 function genQzoneShare() {

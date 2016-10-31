@@ -1,6 +1,6 @@
 ## WZSM PROJECT
 WZSM是一个文章发布平台。
-主页:[wzsm.tech](https://wzsm.tech)
+主页:[wzsm.tech](http://wzsm.tech)
 
 ## Laravel PHP Framework
 

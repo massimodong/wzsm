@@ -4,6 +4,11 @@
 {{trans('wzsm.edit')}}: {{$article->title}}
 @endsection
 
+@section('head')
+@parent
+@include('layouts.forceHttp')
+@endsection
+
 @section('sidebar')
 @parent
 <li><a href="#" onclick="document.forms['article_form'].submit(); return false;">

@@ -3,6 +3,11 @@
 {{trans('wzsm.register')}}
 @endsection
 
+@section('head')
+@parent
+@include('layouts.forceHttps')
+@endsection
+
 @section('content')
 <form class="form-register" method="POST" action="/auth/register">
 {!! csrf_field() !!}
